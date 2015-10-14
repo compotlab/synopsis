@@ -1,0 +1,7 @@
+server:
+    host: 127.0.0.1 # host for admin panel
+    port: 9091 # port for admin panel
+build:
+    file: config.json # file with pool of packages
+    thread: 50 # thread number for update packages
+    output: output # output dir for packages.json and archives

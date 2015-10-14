@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-resource.js"></script>
+<script src="http://sparkalow.github.io/angular-count-to/js/angular-count-to.js"></script>
+<script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.2.js"></script>
+<script src="/assets/js/admin.js"></script>
+<style>
+    .progress {
+        height: 3em;
+    }
+    .progress i {
+        line-height: 3.5em;
+    }
+    .progress-bar {
+        -webkit-transition: width 1s ease-in-out;
+        transition: width 1s ease-in-out;
+    }
+</style>
+<body ng-app="AdminApp">
+<div class="container">
+    <nav class="navbar navbar-inverse" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Synopsis</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+            <ul class="nav navbar-nav">
+                <li ng-controller="PackageUpdate">
+                    <a href="#" ng-click="update($event)">Update</a>
+                </li>
+                <li><a href="/debug/pprof" target="_blank">Profiler</a></li>
+                <li><a href="/profiler/info.html" target="_blank">Memory usage</a></li>
+            </ul>
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search" ng-model="searchKeyword">
+                </div>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+                <li ng-controller="AddRepoModal">
+                    <a href="#" ng-click="open($event);">Add repo</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div ng-controller="ProgressBar" ng-show="countTo">
+        <progressbar class="progress-striped active" animate="true" dynamic-max="{{countMax}}" value="progressValue" type="success">
+            <i><span count-to="{{countTo}}" duration="1" count-from="{{countFrom}}"></span> / {{countMax}}</i>
+        </progressbar>
+    </div>
+    <table class="table table-striped table-bordered table-hover" ng-controller="AllRepo">
+        <thead>
+        <tr>
+            <th>Type</th>
+            <th>Url</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="repo in repositories | filter: searchKeyword">
+            <td>{{repo.type}}</td>
+            <td>{{repo.url}}</td>
+            <td><input type="button" value="Remove" class="btn btn-primary" ng-click="deleteRepo(repo)"/></td>
+        </tr>
+        </tbody>
+    </table>
+    <script type="text/ng-template" id="addRepoContent.html">
+        <div class="modal-header">
+            <h3 class="modal-title">Add repo</h3>
+        </div>
+        <form name="repo-form" ng-submit="submitForm()">
+            <div class="modal-body">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Type" name="type" ng-model="repository.type"/>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Url" name="url" ng-model="repository.url"/>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" type="submit">OK</button>
+                <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+            </div>
+        </form>
+    </script>
+</div>
+</body>
+</html>

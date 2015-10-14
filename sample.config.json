@@ -1,0 +1,14 @@
+{
+  "name": "Private Package Repository",
+  "homepage": "http://localhost:9091",
+  "archive": {
+    "directory": "dist",
+    "skip-dev": false
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": ""
+    }
+  ]
+}

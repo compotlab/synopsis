@@ -1,5 +1,5 @@
 {
-  "name": "Private Package Repository",
+  "name": "My Repository",
   "homepage": "http://localhost:9091",
   "archive": {
     "directory": "dist",
@@ -8,7 +8,7 @@
   "repositories": [
     {
       "type": "vcs",
-      "url": ""
+      "url": "git@bitbucket.org:wl-team/pugu-layered.git"
     }
   ]
 }

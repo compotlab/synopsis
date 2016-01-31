@@ -1,9 +1,8 @@
-package controller
+package handler
 
 import (
 	"fmt"
 	"github.com/gorilla/mux"
-	"github.com/compotlab/synopsis/app"
 	"github.com/compotlab/synopsis/src"
 	"github.com/compotlab/synopsis/src/packages"
 	"io/ioutil"
@@ -19,19 +18,21 @@ func RegisterPackageController(router *mux.Router) {
 }
 
 func AllPackagesHandler(res http.ResponseWriter, req *http.Request) {
-	config := prepareConfig()
+	config := &src.Config{}
+	config.PrepareConfig()
+
 	file, _ := ioutil.ReadFile(path.Join(config.OutputDir, "packages.json"))
+
 	res.Header().Set("Content-Type", "application/json")
-	res.Write([]byte(file))
+	res.Write(file)
 }
 
 func PackageUpdateHandler(res http.ResponseWriter, req *http.Request) {
 	if !Lock {
 		Lock = true
 
-		app := app.GetApp()
-		config := new(src.Config)
-		config.PrepareConfig(app)
+		config := &src.Config{}
+		config.PrepareConfig()
 		config.MakeOutputDir()
 
 		flag := make(chan bool, config.ThreadNumber)

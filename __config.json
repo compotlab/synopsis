@@ -1,0 +1,478 @@
+{
+  "name": "My Repository",
+  "homepage": "http://localhost:9091",
+  "archive": {
+    "directory": "dist",
+    "skip-dev": false
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-layered.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/aschroder-smtppro.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/beecoder-beeshopy.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/babypark-productblocks.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-brand.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-catalog.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-catalogevent.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-cms.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-compare.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-core.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-customer.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-extendedapi.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-import.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-go-fast.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-landing.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-newsletter.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-page.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-productwidget.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-refund.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-rule.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-queue.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-sales.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-sitemap.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-sitemaphtml.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-smtppro.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-socialization.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-trackingcode.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-turpentine.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-widget.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-wishlist.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/wl-locale-ru.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/aw-productupdates.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/balanced-masscategories.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/bl-customgrid.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/et-currencymanager.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-alsobought.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-attributeobject.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-aura.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-background.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-categoryposition.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-checkout.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-cmsrequest.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-content.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-customerbalance.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-elasticsearch.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-exacttarget.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-eventhub.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-export.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-gallery.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-hubcarrier.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-javascript.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-mobile.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-multipleorder.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-offer.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-position.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-privatebank.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-privatebankcredit-payment.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-productstock.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-puzzle.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-related.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-seo.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-sizechart.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-sticker.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-stock.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/tm-easyslide.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/wl-error-templates.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/wl-shopart-local.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/wl-theme.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-aggregator.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-banner.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-catalogsearch.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-categorylink.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-categorymenu.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-categoryrule.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-customer-info.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-mobile-app.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-postback.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-candidate.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-feed.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-activefilters.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-blog.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-contactaddresses.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-geoip.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-htmlminify.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-market.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-promobrand.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-promocategory.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-rack.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-shippingtoday.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/ayaline-rangefilters.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/emv-emt.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/et-robokassa.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/nexcessnet-turpentine.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/organicinternet-simpleconfigurableproducts.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pocketphp-elasticsearch.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-businesscustomer.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-customer-permissions.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-emt.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-gostat.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-justbought.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-smartfilters.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/iceshop-icecatconnector.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/multiship-multiship.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/obra-sheepla.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-eurobox.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-pagecache.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-sync.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/wl-sport-local.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/edost-rus.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/icebergcommerce-videogallery.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-videogallery.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/ksv-banner.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/magefast-ukrainianregions.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/mageworx-geoip.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/phoenix-varnish-cache.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-reward.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wl-team/pugu-authorization.git"
+    }
+  ]
+}

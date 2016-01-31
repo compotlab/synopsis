@@ -1,7 +1,3 @@
 .idea
 .DS_Store
-synopsis.iml
-app.yaml
 synopsis
-config.json
-output/

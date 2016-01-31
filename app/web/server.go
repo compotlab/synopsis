@@ -1,37 +1,28 @@
 package web
 
 import (
+	"github.com/compotlab/synopsis/app/handler"
 	"github.com/fogcreek/profiler"
 	"github.com/gorilla/mux"
-	"github.com/compotlab/synopsis/app"
-	"github.com/compotlab/synopsis/app/controller"
 	"log"
 	"net/http"
 	"net/http/pprof"
+	"os"
 	"path"
 )
 
 func NewServer() {
-	app := app.GetApp()
 	router := mux.NewRouter().StrictSlash(true)
-	controller.RegisterRepoController(router)
-	controller.RegisterPackageController(router)
+
+	handler.RegisterRepoController(router)
+	handler.RegisterPackageController(router)
+
 	RegisterProfilerController(router)
-	RegisterFileServer(app, router)
-	if err := http.ListenAndServe(app.Config.Server["host"]+":"+app.Config.Server["port"], router); err != nil {
+	RegisterFileServer(router)
+
+	if err := http.ListenAndServe(os.Getenv("HOST")+":"+os.Getenv("PORT"), router); err != nil {
 		log.Fatal(err)
 	}
-}
-
-func RegisterFileServer(app app.Application, router *mux.Router) {
-	outputDir := "./" + app.Config.Build["output"] + "/"
-	router.HandleFunc("/packages.json", func(res http.ResponseWriter, req *http.Request) {
-		http.ServeFile(res, req, path.Join(outputDir, "packages.json"))
-	})
-	router.PathPrefix("/dist/").Handler(http.StripPrefix("/dist/", http.FileServer(http.Dir(path.Join(outputDir, "dist")))))
-	router.PathPrefix("/assets/").Handler(http.StripPrefix("/assets/", http.FileServer(http.Dir("./assets/"))))
-	router.PathPrefix("/admin").Handler(http.StripPrefix("/admin", http.FileServer(http.Dir("./app/view/admin/"))))
-	router.PathPrefix("/").Handler(http.StripPrefix("/", http.FileServer(http.Dir("./app/view/package/"))))
 }
 
 func RegisterProfilerController(router *mux.Router) {
@@ -48,4 +39,15 @@ func RegisterProfilerController(router *mux.Router) {
 	router.Handle("/debug/pprof/heap", pprof.Handler("heap"))
 	router.Handle("/debug/pprof/threadcreate", pprof.Handler("threadcreate"))
 	router.Handle("/debug/pprof/block", pprof.Handler("block"))
+}
+
+func RegisterFileServer(router *mux.Router) {
+	outputDir := "./" + os.Getenv("OUTPUT") + "/"
+	router.HandleFunc("/packages.json", func(res http.ResponseWriter, req *http.Request) {
+		http.ServeFile(res, req, path.Join(outputDir, "packages.json"))
+	})
+	router.PathPrefix("/dist/").Handler(http.StripPrefix("/dist/", http.FileServer(http.Dir(path.Join(outputDir, "dist")))))
+	router.PathPrefix("/assets/").Handler(http.StripPrefix("/assets/", http.FileServer(http.Dir("./assets/"))))
+	router.PathPrefix("/admin").Handler(http.StripPrefix("/admin", http.FileServer(http.Dir("./app/view/admin/"))))
+	router.PathPrefix("/").Handler(http.StripPrefix("/", http.FileServer(http.Dir("./app/view/package/"))))
 }

@@ -2,7 +2,6 @@ package src
 
 import (
 	"encoding/json"
-	"github.com/compotlab/synopsis/app"
 	"io/ioutil"
 	"log"
 	"os"
@@ -35,8 +34,8 @@ type Repository struct {
 	Url  string `json:"url"`
 }
 
-func (config *Config) PrepareConfig(app app.Application) {
-	config.FileName = app.Config.Build["file"]
+func (config *Config) PrepareConfig() {
+	config.FileName = os.Getenv("FILE")
 	file, err := ioutil.ReadFile(config.FileName)
 	if err != nil {
 		log.Fatal(err)
@@ -44,8 +43,8 @@ func (config *Config) PrepareConfig(app app.Application) {
 	if err = json.Unmarshal(file, &config.File); err != nil {
 		log.Fatal(err)
 	}
-	config.ThreadNumber, _ = strconv.Atoi(app.Config.Build["thread"])
-	config.OutputDir = app.Config.Build["output"]
+	config.ThreadNumber, _ = strconv.Atoi(os.Getenv("THREAD"))
+	config.OutputDir = os.Getenv("OUTPUT")
 	config.DistDir = path.Join(config.OutputDir, config.File.Archive.Dir)
 }
 

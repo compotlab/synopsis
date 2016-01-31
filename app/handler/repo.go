@@ -1,9 +1,8 @@
-package controller
+package handler
 
 import (
 	"encoding/json"
 	"github.com/gorilla/mux"
-	"github.com/compotlab/synopsis/app"
 	"github.com/compotlab/synopsis/src"
 	"io/ioutil"
 	"net/http"
@@ -17,7 +16,9 @@ func RegisterRepoController(router *mux.Router) {
 }
 
 func RepoAllHandler(res http.ResponseWriter, req *http.Request) {
-	config := prepareConfig()
+	config := &src.Config{}
+	config.PrepareConfig()
+
 	j, err := json.Marshal(config.File.Repositories)
 	if err != nil {
 		http.Error(res, err.Error(), http.StatusInternalServerError)
@@ -28,16 +29,26 @@ func RepoAllHandler(res http.ResponseWriter, req *http.Request) {
 }
 
 func RepoSaveHandler(res http.ResponseWriter, req *http.Request) {
-	config := prepareConfig()
-	repo := src.Repository{}
-	body, _ := ioutil.ReadAll(req.Body)
-	if err := json.Unmarshal(body, &repo); err != nil {
+	body, err := ioutil.ReadAll(req.Body)
+	if err != nil {
 		http.Error(res, err.Error(), http.StatusInternalServerError)
 		return
 	}
+
+	repo := src.Repository{}
+	err = json.Unmarshal(body, &repo);
+	if err != nil {
+		http.Error(res, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
 	urlRepo := strings.TrimSpace(repo.Url)
 	typeRepo := strings.TrimSpace(repo.Type)
 	originalUrlRepo := req.PostForm.Get("original_url")
+
+	config := &src.Config{}
+	config.PrepareConfig()
+
 	isExist := false
 	for key, value := range config.File.Repositories {
 		if value.Url == originalUrlRepo {
@@ -49,7 +60,8 @@ func RepoSaveHandler(res http.ResponseWriter, req *http.Request) {
 	if !isExist {
 		config.File.Repositories = append(config.File.Repositories, src.Repository{Type: typeRepo, Url: urlRepo})
 	}
-	err := saveNewConfig(config)
+
+	err = saveNewConfig(config)
 	if err != nil {
 		http.Error(res, err.Error(), http.StatusInternalServerError)
 		return
@@ -57,8 +69,11 @@ func RepoSaveHandler(res http.ResponseWriter, req *http.Request) {
 }
 
 func RepoDeleteHandler(res http.ResponseWriter, req *http.Request) {
-	config := prepareConfig()
 	url := req.URL.Query().Get("url")
+
+	config := &src.Config{}
+	config.PrepareConfig()
+
 	isExist := false
 	for key, value := range config.File.Repositories {
 		if value.Url == url {
@@ -70,6 +85,7 @@ func RepoDeleteHandler(res http.ResponseWriter, req *http.Request) {
 		http.Error(res, "Item not exist!", http.StatusNoContent)
 		return
 	}
+
 	err := saveNewConfig(config)
 	if err != nil {
 		http.Error(res, err.Error(), http.StatusInternalServerError)
@@ -77,20 +93,15 @@ func RepoDeleteHandler(res http.ResponseWriter, req *http.Request) {
 	}
 }
 
-func saveNewConfig(config src.Config) error {
+func saveNewConfig(config *src.Config) error {
 	j, err := json.MarshalIndent(config.File, "", "  ")
 	if err != nil {
 		return err
 	}
-	if err = ioutil.WriteFile(config.FileName, j, 0755); err != nil {
+
+	err = ioutil.WriteFile(config.FileName, j, 0755);
+	if err != nil {
 		return err
 	}
 	return nil
-}
-
-func prepareConfig() src.Config {
-	app := app.GetApp()
-	config := src.Config{}
-	config.PrepareConfig(app)
-	return config
 }

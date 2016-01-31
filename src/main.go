@@ -3,7 +3,7 @@ package src
 import (
 	"crypto/sha1"
 	"encoding/hex"
-	"github.com/compotlab/synopsis/src/logger"
+	"github.com/compotlab/synopsis/src/utils"
 	"github.com/compotlab/synopsis/src/packages"
 	"github.com/compotlab/synopsis/src/repository"
 	"github.com/compotlab/synopsis/src/repository/downloader"
@@ -23,13 +23,13 @@ func (repo Repository) Run(pm map[string]map[string]packages.Composer, config *C
 		vcsDriver = &driver.Git{Url: repo.Url, Packages: pm}
 		err := vcsDriver.Run()
 		if err != nil {
-			logger.SystemLog.Error(err)
+			utils.Logger.Error(err)
 		}
 		Archivate(pm, config, vcsDriver, repo)
 	case "bitbucket", "git-bitbucket":
-		logger.SystemLog.Error("Bitbucket driver hasn't ready yet!")
+		utils.Logger.Error("Bitbucket driver hasn't ready yet!")
 	default:
-		logger.SystemLog.Error("Has no driver!")
+		utils.Logger.Error("Has no driver!")
 	}
 }
 
@@ -61,13 +61,13 @@ func Archivate(pm map[string]map[string]packages.Composer, config *Config, d dri
 				// Run git download
 				if !gitDownloader.PathExist && !ar.ArchiveExist {
 					if err := gitDownloader.Run(); err != nil {
-						logger.SystemLog.Error(err)
+						utils.Logger.Error(err)
 					}
 				}
 				// Run create archive
 				if gitDownloader.PathExist && !ar.ArchiveExist {
 					if err := ar.Run(); err != nil {
-						logger.SystemLog.Error(err)
+						utils.Logger.Error(err)
 					}
 				}
 				if ar.ArchiveExist {

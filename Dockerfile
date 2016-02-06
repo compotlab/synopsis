@@ -11,11 +11,18 @@ RUN go get
 RUN go install
 
 # Export some needed env vars
-ENV HOST 127.0.0.1
+ENV HOST ""
 ENV PORT 8080
-ENV FILE "data/config.json"
+ENV FILE "/data/config.json"
 ENV THREAD 50
-ENV OUTPUT "data/output"
+ENV OUTPUT "/data/output"
+
+# Create volume directory
+RUN mkdir /data
+RUN mkdir /root/.ssh
+
+# Add volume directory
+VOLUME ["/data", "/root/.ssh"]
 
 # Set container entrypoint
 ENTRYPOINT /go/bin/synopsis
